@@ -84,3 +84,4 @@ macos-icon = official
 macos-titlebar-style = tabs
 font-size = 14
 macos-option-as-alt = true
+shell-integration-features = ssh-terminfo
