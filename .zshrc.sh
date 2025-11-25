@@ -18,10 +18,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 if [-f $ZSH/oh-my-zsh.sh ]; then
   plugins=(git zsh-autosuggestions)
+  ZSH_AUTOSUGGEST_USE_ASYNC=1
   source $ZSH/oh-my-zsh.sh
 else
   echo "Oh My Zsh not found at $ZSH. Please check your installation."
-  exit 1
 fi
 
 export WORKSPACE=$HOME
