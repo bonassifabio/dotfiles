@@ -1,0 +1,36 @@
+bind M-b prevword main
+bind M-f nextword main
+
+# Word deletion (chops without cutbuffer; use Ctrl+W for cut-to-buffer if needed)
+bind ^W chopwordleft main     # Ctrl+W: delete word left (saves to buffer)
+bind M-d chopwordright main   # Option+D: delete word right
+
+# 3. Native Selection Deletion
+# Allows you to select text with mouse and hit Backspace/Delete to remove it
+# (Standard nano requires Ctrl+K to cut, this makes it feel like a Mac app)
+set tabsize 4
+set tabstospaces
+set linenumbers
+set numbercolor yellow,normal
+set scrollercolor grey,normal
+set indicator       # side bar for indicating cur position
+set smarthome       # `Home` jumps to line start first
+set afterends       # `Ctrl+Right` move to word ends instead of word starts
+set wordchars "_"   # recognize '_' as part of a word
+set zap             # delete selected text as a whole
+set atblanks        # soft wrap at blank chars
+set historylog      # remember search history
+set nonewlines      # newline at end of file
+# set multibuffer     # read files into multibuffer instead of insert
+
+include "/opt/homebrew/share/nano/*.nanorc"
+include "/opt/homebrew/share/nano/extra/*.nanorc"
+
+bind ^Z    undo       main    # Ctrl + Z
+bind ^Y    redo       main    # Ctrl + Y
+bind ^S    writeout   main    # Ctrl + S = save
+bind ^Q    exit       main    # Ctrl + Q = quit
+bind ^F    whereis       main    # Ctrl + F = search (instead of ^W)
+# bind ^X    exit        main
+bind ^/    comment     main
+bind ^_    linter      main

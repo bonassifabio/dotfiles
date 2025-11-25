@@ -1,0 +1,40 @@
+# ======================
+# nano 2.8.9-compatible .nanorc (no errors)
+# Mac-like feel, zero warnings
+# ======================
+
+# ---- Basic display & behavior (all supported in 2.8.9) ----
+set tabsize 4
+set tabstospaces
+set linenumbers
+set numbercolor yellow,normal
+set smarthome          # Home → start of line, then start of file
+set wordchars "_"      # treat underscore as part of words
+set historylog         # remember search/replace history across sessions
+set nonewlines         # don’t force a final newline
+
+# Soft line wrapping at blanks (basic support in 2.8.9)
+set softwrap
+set atblanks
+
+# ---- Key bindings – Mac-style and fully functional on 2.8.9 ----
+# Navigation
+bind M-b prevword   main    # Alt+B  ← previous word
+bind M-f nextword   main    # Alt+F  → next word
+
+# Word deletion (use the old function names that 2.8.9 understands)
+bind ^W  cutwordleft   main   # Ctrl+W  delete word left  (saves to cutbuffer)
+bind M-d cutwordright  main   # Alt+D   delete word right (saves to cutbuffer)
+
+# Mac-style essentials
+bind ^S writeout     main     # Ctrl+S → save
+bind ^Q exit         main     # Ctrl+Q → quit
+bind ^F whereis      main     # Ctrl+F → search forward
+bind M-3 comment     main     # Alt+3 → toggle comments (works since nano 2.6+)
+bind ^_ linter       main     # Ctrl+underscore → run linter (if configured)
+
+# ---- Syntax highlighting (server-safe paths only) ----
+include "/usr/share/nano/*.nanorc"
+
+# ---- Optional niceties that 2.8.9 understands ----
+set trimblanks         # remove trailing whitespace on save (added in 2.7)
